@@ -1,24 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useFetch } from "./useFetch";
 import {FaSearch} from 'react-icons/fa'
 import Station from './Station'
 const topClicksUrl =
   "https://nl1.api.radio-browser.info/json/stations/topvote/5";
-  const url = "https://api.github.com/users";
+  // const url = "https://api.github.com/users";
 const Main = () => {
-
-  let [stations,setStations] = useState([]);
-
-  const getStation = async () => {
-    const response = await fetch(topClicksUrl);
-    const user = await response.json();
-    setStations(user);
-  };
-
-  useEffect(() => {
-    getStation();
-    
-  }, []);
+  const {data} = useFetch(topClicksUrl)
   return (
     <>
         <section className="main-section">
@@ -36,10 +24,10 @@ const Main = () => {
 
         </div>
     </section>
-    {stations && <div className="main-results">
+    {data && <div className="main-results">
             <h1 className='main-results-title'>Top Stations</h1>
             <div className="main-show-stations">
-                <Station stations={stations}/>
+                <Station stations={data}/>
             </div>
         </div>}
     </>

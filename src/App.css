@@ -42,18 +42,18 @@
   display: block;
 }
 .nav-btn:hover{
-  border-bottom: 2px solid #0788D9;
-  background-color: #0788D9;  
-  padding: 10px;
+  /* border-bottom: 2px solid #0788D9; */
+  /* background-color: #0788D9;   */
+  padding-left: 10px;
   border-radius: 1px;
   transition: 250ms;
 
 }
 .nav-btn-more{
-  color: white;
-  background-color: #0788D9;
-  display: block;
-  padding: 0 2px;
+  background-color: white;
+  color: #0788D9;
+  display: inline-block;
+  padding: 10px;
   font-weight: 700;
   text-decoration: none;
   margin: 0 10px;
@@ -66,7 +66,7 @@ transition: 250ms;
 color: #0788D9;
 background-color: white;
 transition: 250ms;
-padding: 10px;
+padding:10px 20px;
 
 }
 .nav-column-2{
@@ -119,10 +119,16 @@ padding: 10px;
   height: 100vh;
 }
 .sign-links{
-  position: absolute;
-  bottom: 10px;
-  /* display: flex; */
-  /* justify-content: space-between; */
+  /* position: absolute;
+  top: 30%;
+  transform: translateY(-50%); */
+  display: flex;
+}
+.nav-btn.other{
+  padding: 0;
+}
+.nav-btn.other:hover{
+  padding-top: 10px;
 }
 .main-section{
   width: 100%;
@@ -133,7 +139,7 @@ padding: 10px;
 }
 .main-title{
   font-size: 40pt;
-  color: #0788D9;
+  color: #049DD9;
   font-weight: bold;
   margin-bottom: 40px;
 }
@@ -189,9 +195,206 @@ padding: 10px;
 }
 .main-station-title{
   margin-bottom: 0;
+  color: black;
+  font-size: 15pt;
+  text-decoration: none;
 }
 .main-station-p{
  color: grey;
+}
+.footer{
+  width: 100%;
+  background-color: #048ABF;
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-first-row,.footer-second-row,.footer-third-row{
+  display: flex;
+  padding: 20px;
+}
+.footer-img{
+  width: 50%;
+  object-fit: contain;
+  max-width: 150px;
+  margin: 0px 20px;
+}
+.footer-sign-up{
+  color: white;
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 0px 20px;
+  background-color: rgba(0, 0, 0,0.3);
+  text-decoration: none;
+
+}
+.footer-first-row{
+  width: 100%;
+  max-width: 1000px;
+  justify-content: center;
+}
+.footer-second-row{
+  display: flex;
+  width: 50%;
+  max-width: 300px;
+  justify-content: space-evenly;
+}
+.social-media-link{
+  display: inline-flex;
+  padding: 10px;
+  margin: 0px 5px;
+  border-radius: 50%;
+  font-size: 20pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+}
+.footer-third-row{
+  width: 100%;
+  max-width: 1000px;
+  color: rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  align-items: center;
+}
+.footer-more-div{
+  display: flex;
+  justify-content: space-between;
+}
+.footer-end-links{
+  color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  margin: 0px 5px;
+  text-decoration: none;
+}
+.station{
+  margin:0;
+  padding: 0;
+  
+}
+.station-upper{
+  display: flex;
+  flex-direction: row;
+}
+.img{
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: flex-start;
+  margin: 80px 0px 0px 80px;
+  border-radius: 50%;
+  box-shadow: 6px 0px 6px 6px rgba(134, 134, 134, 0.3);
+
+}
+.station-name {
+  font-size: 1.5rem;
+  margin-top: 90px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+ 
+
+.rhap_container {
+  display: flex;
+  justify-content:center;
+  
+}
+.rhap_main-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rhap_main-controls-button {
+  margin: 0 5px;
+  color:#00518f;
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+.rhap_play-pause-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  width: 60px;
+  height: 60px;
+}
+
+
+.rhap_volume-button {
+  flex: 0 0 26px;
+  font-size: 26px;
+  width: 26px;
+  height: 26px;
+  color:#00518f;
+  margin-right: 6px;
+}
+
+.rhap_volume-container {
+  display: flex;
+  align-items: center;
+  flex: 0 1 100px;
+  user-select: none;
+
+}
+
+.rhap_volume-bar-area {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+}
+
+.rhap_volume-bar-area:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.rhap_volume-bar {
+  box-sizing: border-box;
+  position: relative;
+  width: 50px;
+  height: 4px;
+  background: #dddddd;
+  border-radius: 2px;
+}
+
+.rhap_volume-indicator {
+  box-sizing: border-box;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  left: 0;
+  top: -4px;
+  background: #00518f;;
+  opacity: 0.9;
+  border-radius: 50px;
+  box-shadow: rgba(134, 134, 134, 0.5) 0 0 3px;
+  cursor: pointer;
+}
+.rhap_volume-indicator:hover {
+  opacity: 0.9;
+}
+.rhap_button-clear {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+.radio-container{
+  width: 100%;
+  height: 50vh;
+  justify-content: center;
+}
+.station{
+  width: 100%;
+  justify-content: center;
 }
 @media screen and (min-width:1020px) {
   .nav-logo{
