@@ -10,7 +10,8 @@ const AppProvider = ({children})=>{
     const openSidebar = ()=>{
         setIsOpen(true)
     }
-    return <AppContext.Provider value="">{children}</AppContext.Provider>
+    const [search, setSearch] = useState("");
+    return <AppContext.Provider value={{search,setSearch,openSidebar,closeSidebar,isOpen}}>{children}</AppContext.Provider>
 }
 export const useGlobalContext = ()=>{
     return useContext(AppContext)

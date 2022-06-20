@@ -2,8 +2,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {HiMenu} from 'react-icons/hi'
 import { useGlobalContext } from '../context'
-const Sidebar = ({isOpen,setIsOpen}) => {
-  const {closeSidebar} = useGlobalContext();
+const Sidebar = () => {
+  const {closeSidebar,isOpen} = useGlobalContext();
   return (
     <aside className={isOpen?"sidebar open":"sidebar"}>
         <div className="side-title">

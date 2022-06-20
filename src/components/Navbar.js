@@ -4,11 +4,9 @@ import micON from '../images/micON.png'
 import { useMediaQuery } from 'react-responsive'
 import {HiMenu} from 'react-icons/hi'
 import Sidebar from './Sidebar'
+import { useGlobalContext } from '../context'
 const Navbar = () => {
-    const [isOpen,setIsOpen] = React.useState(false)
-    const openSidebar = ()=>{
-        setIsOpen(true)
-    }
+    const {isOpen,openSidebar} = useGlobalContext()
     const isDesktop = useMediaQuery({
         query:'(min-width:1020px)'
     })
@@ -33,7 +31,7 @@ const Navbar = () => {
             </div>}
            {!isDesktop && <div className="mobile-menu">
            <HiMenu onClick={openSidebar} className='hamburger-btn'/>
-           <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
+           <Sidebar/>
            </div> }
         </div>
     </nav>
