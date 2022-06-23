@@ -1,33 +1,34 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import micON from '../images/micON.png'
-import { useMediaQuery } from 'react-responsive'
 import {HiMenu} from 'react-icons/hi'
 import Sidebar from './Sidebar'
-import { useGlobalContext } from '../context'
+import { useGlobalContext } from "../helpers/context";
 const Navbar = () => {
-    const {isOpen,openSidebar} = useGlobalContext()
-    const isDesktop = useMediaQuery({
-        query:'(min-width:1020px)'
-    })
+    const {isOpen,openSidebar,isRegistered,isDesktop} = useGlobalContext()
+
   return (
     <nav className='navbar'>
         <div className="nav-column-1">
             <div className="nav-column-1-center">
-            <img className='nav-logo' src={micON} alt="" />
+                <Link className='nav-logo' to={`/`}><img src={micON} alt="" /></Link>
            {isDesktop && <div className="nav-routes-div-1">
                 <Link className='nav-btn' to={`/music`}>Music</Link>
                 <Link className='nav-btn' to={`/news`}>News</Link>
                 <Link className='nav-btn' to={`/sport`}>Sport</Link>
-                <Link className='nav-btn-more' to={`/more`}>Listen Now</Link>
+                <Link className='nav-btn-more' to={`/categories`}>Listen Now</Link>
 
             </div>}
             </div>
         </div>
             <div className="nav-column-2">
             {isDesktop&& <div className="nav-routes-div-2">
-                <Link className='nav-btn' to={`/login`}>Sign In</Link>
-                <Link className='nav-btn' to={`/register`}>Sign Up</Link>
+                {isRegistered?(<Link className='nav-btn' to={`/account`}>My Account</Link>):(
+                    <>
+                    <Link className='nav-btn' to={`/login`}>Sign In</Link>
+                    <Link className='nav-btn' to={`/register`}>Sign Up</Link>
+                    </>
+                )}
             </div>}
            {!isDesktop && <div className="mobile-menu">
            <HiMenu onClick={openSidebar} className='hamburger-btn'/>

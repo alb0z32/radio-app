@@ -1,9 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {HiMenu} from 'react-icons/hi'
-import { useGlobalContext } from '../context'
+import { useGlobalContext } from "../helpers/context";
 const Sidebar = () => {
-  const {closeSidebar,isOpen} = useGlobalContext();
+  const {closeSidebar,isOpen,isRegistered} = useGlobalContext();
   return (
     <aside className={isOpen?"sidebar open":"sidebar"}>
         <div className="side-title">
@@ -14,11 +14,13 @@ const Sidebar = () => {
         <Link className='nav-btn' to={`/music`}>Music</Link>
                 <Link className='nav-btn' to={`/news`}>News</Link>
                 <Link className='nav-btn' to={`/sport`}>Sport</Link>
-                <Link className='nav-btn-more' to={`/more`}>Listen Now</Link>
+                <Link className='nav-btn-more' to={`/categories`}>Listen Now</Link>
                 <div className="sign-links">
                     
-                <Link className='nav-btn other' to={`/login`}>Sign In</Link>
+                {isRegistered?<Link className='nav-btn other' to={`/myaccount`}>My Account</Link>:(<>
+                  <Link className='nav-btn other' to={`/login`}>Sign In</Link>
                 <Link className='nav-btn other' to={`/register`}>Sign Up</Link>
+                </>)}
                 </div>
         </div>
     </aside>

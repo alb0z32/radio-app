@@ -1,7 +1,9 @@
-import { useParams } from "react-router-dom"
+import { useParams,Link} from "react-router-dom"
 import AudioPlayer from "react-h5-audio-player";
-import { useGlobalContext } from "../context";
-import { useFetch } from "./useFetch";
+import { useGlobalContext } from "../helpers/context";
+import nomusic from '../images/no-music.png'
+import { useFetch } from "../helpers/useFetch";
+import {AiOutlineStar} from 'react-icons/ai'
 const radioByUuid = "https://nl1.api.radio-browser.info/json/stations/byuuid/"
 
 function Radio() {
@@ -12,6 +14,7 @@ function Radio() {
   return(
       <>
       <div className="radio-container">
+        <h1>You are currently listening to: </h1>
       <h1>{data.map((radio,index)=>{
           return(
               <div className="station" key={index}>
@@ -21,15 +24,14 @@ function Radio() {
               <img
                 className="img"
                 src={radio.favicon}
+                onError={({currentTarget})=>{currentTarget.onerror=null;currentTarget.src=nomusic}}
                 alt="station logo"
               />
               <div className="station-name">
                 <h3>{radio.name}</h3>
-                <p>Website:<a href={radio.homepage}>{radio.homepage}</a></p>
+                <p><a href={radio.homepage}>Go to this radio's website</a></p>
               </div>
-              <div className="station-info">
-             
-              </div>
+
               </div>
               <AudioPlayer
                 className="player"
@@ -43,7 +45,11 @@ function Radio() {
               />
             </div>
           )
+          
       })}</h1>
+                    <div className="station-info">
+              <p className="favorite">Add This radio to your favorites: <Link className="favorite-btn" to={`/`}><AiOutlineStar/></Link></p>
+              </div>
       </div>
       
       

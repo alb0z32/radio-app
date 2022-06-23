@@ -2,13 +2,15 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { FaInstagram,FaFacebook,FaTwitter } from 'react-icons/fa'
 import micOnInverted from '../images/micONfooter.png'
+import { useGlobalContext } from "../helpers/context";
 
 const Footer = () => {
+    const {isRegistered} = useGlobalContext()
   return (
     <footer className="footer">
         <div className="footer-first-row">
             <img className="footer-img"src={micOnInverted} alt="" />
-            <Link to={`/register`} className="footer-sign-up">Sign Up</Link>
+            {!isRegistered &&<Link to={`/register`} className="footer-sign-up">Sign Up</Link>}
         </div>
         <div className="footer-second-row">
             <Link to={`https://www.facebook.com`} className='social-media-link'><FaFacebook/></Link>
